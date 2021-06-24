@@ -4,7 +4,7 @@
 \alias{to_png}
 \title{Write base64 string to a PNG}
 \usage{
-to_png(base64, file = tempfile())
+to_png(base64, file = tempfile(), resize = NULL)
 }
 \description{
 Write base64 string to a PNG

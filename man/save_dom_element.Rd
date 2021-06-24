@@ -4,7 +4,12 @@
 \alias{save_dom_element}
 \title{Save a DOM element in a Shiny app to a PNG}
 \usage{
-save_dom_element(id, id_out, session = getDefaultReactiveDomain())
+save_dom_element(
+  id,
+  id_out,
+  session = shiny::getDefaultReactiveDomain(),
+  asis = FALSE
+)
 }
 \arguments{
 \item{id}{Shiny input ID of element to take a snapshot of}

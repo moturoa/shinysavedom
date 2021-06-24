@@ -34,6 +34,12 @@ save_domelement_dataurl = function(id, id_out){
 
   var node = document.getElementById(id);
 
+  var elements = node.getElementsByClassName("leaflet-control");
+
+  while (elements[0]) {
+      elements[0].parentNode.removeChild(elements[0]);
+  }
+
   domtoimage.toPng(node).then(function(dataUrl){
 
     Shiny.setInputValue(id_out, {dataUrl: dataUrl, nonce: Math.random()});
