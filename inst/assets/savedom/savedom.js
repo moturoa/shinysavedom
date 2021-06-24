@@ -30,24 +30,38 @@ save_domelement_and_download = function(id, name = "map"){
 /* id: bare id of the dom element to convert */
 /* id_out: name of shiny input id to which the base64 url will be assigned (character) */
 /* RAD */
-filter_dom_function = function(node){
-
-    return (node.className !== 'leaflet-control-container');
-
-};
-
 save_domelement_dataurl = function(id, id_out){
+
 
   var node = document.getElementById(id);
 
-
-
-  domtoimage.toPng(node, {filter: filter_dom_function}).then(function(dataUrl){
+  domtoimage.toPng(node).then(function(dataUrl){
 
     Shiny.setInputValue(id_out, {dataUrl: dataUrl, nonce: Math.random()});
 
   });
 
 
+
 };
+
+
+
+hide_leaflet_zoom = function(){
+
+  document.querySelectorAll('.leaflet-control-zoom').forEach(function(el) {
+   el.style.display = 'none';
+  });
+
+}
+
+show_leaflet_zoom = function(){
+
+  document.querySelectorAll('.leaflet-control-zoom').forEach(function(el) {
+   el.style.display = 'block';
+  });
+
+}
+
+
 

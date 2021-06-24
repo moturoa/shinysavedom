@@ -5,9 +5,11 @@ library(shiny)
 library(leaflet)
 library(glue)
 library(magick)
+library(shinyjs)
 
 ui <- fluidPage(
   shinysavedom::save_dom_element_dependencies(),
+  useShinyjs(),
 
   fluidRow(
     column(6,
@@ -27,11 +29,15 @@ server <- function(input, output, session) {
   output$leaf <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
-      addCircleMarkers(data = data.frame(lon = 5.1, lat = 52.1))
+      addCircleMarkers(data = data.frame(lon = 5.1, lat = 52.1)) %>%
+      addLegend(colors = c("blue","red"), labels = LETTERS[1:2],
+                layerId = "maplegendleaflet")
   })
 
   observeEvent(input$btn, {
+    runjs("hide_leaflet_zoom();")
     save_dom_element("leaf", "leaf_out")
+    runjs("show_leaflet_zoom();")
   })
 
   output$img_out <- renderImage({
