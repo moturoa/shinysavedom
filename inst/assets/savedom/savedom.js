@@ -49,7 +49,7 @@ save_domelement_dataurl = function(id, id_out){
 
 hide_leaflet_zoom = function(){
 
-  document.querySelectorAll('.leaflet-control-zoom').forEach(function(el) {
+  document.querySelectorAll('.leaflet-control-zoom, .leaflet-control-layers-toggle').forEach(function(el) {
    el.style.display = 'none';
   });
 
@@ -57,7 +57,7 @@ hide_leaflet_zoom = function(){
 
 show_leaflet_zoom = function(){
 
-  document.querySelectorAll('.leaflet-control-zoom').forEach(function(el) {
+  document.querySelectorAll('.leaflet-control-zoom, .leaflet-control-layers-toggle').forEach(function(el) {
    el.style.display = 'block';
   });
 
