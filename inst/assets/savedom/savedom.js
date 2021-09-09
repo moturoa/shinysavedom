@@ -32,7 +32,6 @@ save_domelement_and_download = function(id, name = "map"){
 /* RAD */
 save_domelement_dataurl = function(id, id_out){
 
-
   var node = document.getElementById(id);
 
   domtoimage.toPng(node).then(function(dataUrl){
@@ -40,8 +39,6 @@ save_domelement_dataurl = function(id, id_out){
     Shiny.setInputValue(id_out, {dataUrl: dataUrl, nonce: Math.random()});
 
   });
-
-
 
 };
 
