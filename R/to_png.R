@@ -7,13 +7,17 @@ to_png <- function(base64, file = tempfile(), resize = NULL){
   raw <- base64enc::base64decode(what = substr(base64, 23, nchar(base64)))
   png::writePNG(png::readPNG(raw), file)
 
+  img <- magick::image_read(file) %>%
+    magick::image_trim()
+
   if(!is.null(resize)){
     stopifnot(is.character(resize))
 
-    magick::image_read(file) %>%
-      magick::image_resize(resize) %>%
-      magick::image_write(file)
+    img <- magick::image_resize(img, resize)
+
   }
+
+  magick::image_write(img, file)
 
 return(invisible(file))
 }

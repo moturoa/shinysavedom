@@ -19,7 +19,6 @@ testModuleUI <- function(id){
              actionButton(ns("btn"),"Snap!")
       ),
       column(6,
-
              imageOutput(ns("img_out"), height = 200, width = 200)
       )
     )

@@ -18,7 +18,10 @@ ui <- fluidPage(
     ),
     column(6,
 
-           imageOutput("img_out", height = 200, width = 200)
+           imageOutput("img_out", height = 200, width = 200),
+           tags$hr(),
+           tags$div(style="height: 200px;"),
+           uiOutput("ui_img_out")
     )
   )
 
@@ -47,11 +50,15 @@ server <- function(input, output, session) {
 
     fn <- shinysavedom::to_png(mybase64, resize = "50%")
 
-
-
     list(src=fn)
 
   }, deleteFile = TRUE)
+
+  output$ui_img_out <- renderUI({
+    mybase64 <- input$leaf_out$dataUrl
+    req(mybase64)
+    HTML(glue('<img src="{mybase64}" alt="base64 image here" />'))
+  })
 
 }
 
