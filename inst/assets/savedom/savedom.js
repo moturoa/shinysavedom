@@ -46,7 +46,7 @@ save_domelement_dataurl = function(id, id_out){
 
 hide_leaflet_zoom = function(){
 
-  document.querySelectorAll('.leaflet-control-zoom, .leaflet-control-layers-toggle, .easy-button-container').forEach(function(el) {
+  document.querySelectorAll('.leaflet-control-zoom, .leaflet-control-layers-toggle, .easy-button-container, .leaflet-pm-toolbar').forEach(function(el) {
    el.style.display = 'none';
   });
 
@@ -54,7 +54,7 @@ hide_leaflet_zoom = function(){
 
 show_leaflet_zoom = function(){
 
-  document.querySelectorAll('.leaflet-control-zoom, .leaflet-control-layers-toggle, .easy-button-container').forEach(function(el) {
+  document.querySelectorAll('.leaflet-control-zoom, .leaflet-control-layers-toggle, .easy-button-container, .leaflet-pm-toolbar').forEach(function(el) {
    el.style.display = 'block';
   });
 
