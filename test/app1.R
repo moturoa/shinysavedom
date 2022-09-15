@@ -20,6 +20,7 @@ ui <- fluidPage(
 
            imageOutput("img_out", height = 200, width = 200),
            tags$hr(),
+           actionButton("btn_download_img","Download"),
            tags$div(style="height: 200px;"),
            uiOutput("ui_img_out")
     )
@@ -29,6 +30,11 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
 
+  
+  observeEvent(input$btn_download_img, {
+    download_dom_element("img_out", "testimageout")
+  })
+  
   output$leaf <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%

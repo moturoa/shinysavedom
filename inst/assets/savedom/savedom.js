@@ -4,6 +4,11 @@ Shiny.addCustomMessageHandler("save_dom_element", function(data){
 
 });
 
+Shiny.addCustomMessageHandler("download_dom_element", function(data){
+
+  save_domelement_and_download(data.id, data.name);
+
+});
 
 
 /* save a dom element as a PNG, download immediately */

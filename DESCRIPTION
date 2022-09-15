@@ -1,7 +1,7 @@
 Package: shinysavedom
 Type: Package
 Title: Save Shiny DOM Elements as Images
-Version: 0.3
+Version: 0.3-5
 Author: Remko Duursma
 Maintainer: Remko Duursma <remko@shintolabs.nl>
 Description: Save a Shiny element as a reactive base64 encoding, using the dom-to-image.js library.
