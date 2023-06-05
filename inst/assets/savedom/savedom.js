@@ -49,21 +49,24 @@ save_domelement_dataurl = function(id, id_out){
 
 
 
-hide_leaflet_zoom = function(){
+hide_leaflet_zoom = function(id){
 
   document.querySelectorAll('.leaflet-control-zoom, .leaflet-control-layers-toggle, .easy-button-container, .leaflet-pm-toolbar').forEach(function(el) {
-   el.style.display = 'none';
-  });
+     el.style.display = 'none';
+    });
 
-}
+};
 
-show_leaflet_zoom = function(){
+show_leaflet_zoom = function(id){
 
   document.querySelectorAll('.leaflet-control-zoom, .leaflet-control-layers-toggle, .easy-button-container, .leaflet-pm-toolbar').forEach(function(el) {
    el.style.display = 'block';
   });
 
-}
+};
+
+Shiny.addCustomMessageHandler("hide_leaflet_zoom", hide_leaflet_zoom);
+Shiny.addCustomMessageHandler("show_leaflet_zoom", show_leaflet_zoom);
 
 
 
